@@ -140,12 +140,18 @@
         console.log("Array da Coluna O")
         console.log(cartelaO);
 
-        var b2 = document.getElementById("b2");
-        var b1 = document.getElementById("b1");
-        function marcarsorteado(b1){
-            alert("Deu certo o clique");
-            
+        var b2 = document.getElementById("b2")
+        var b1 = document.getElementById("b1")
+        function marcarsorteado(nomeID,elemento){
+            console.log("elemento=")
+            console.log(elemento)
+            console.log(nomeID)
+            elemento.style.backgroundColor = "#FF6500"
+            if(elemento.style.backgroundColor == "#FF6500")
+            {
+            alert("a cor é laranja")
         }
+    }
     </script>
 </div>
      
