@@ -62,11 +62,11 @@
         </tr>
         <tbody>
             <tr>
-            <td id="b1" onclick="marcarsorteado(b1, this)">34</td>
+            <td id="b1" onclick="marcarsorteado(b1, this)">1</td>
             <td id="i1">4</td>
             <td id="n1">33</td>
             <td id="g1">55</td>
-            <td id="o1">95</td>
+            <td id="o1">70</td>
             </tr></tbody>
         <tbody>
             <tr>
@@ -74,7 +74,7 @@
             <td id="i2">13</td>
             <td id="n2">44</td>
             <td id="g2">50</td>
-            <td id="o2">78</td>
+            <td id="o2">34</td>
             </tr></tbody>
         <tbody>
             <tr>
@@ -87,16 +87,16 @@
         <tbody>
             <tr>
             <td id="b4">3</td>
-            <td id="i4">57</td>
+            <td id="i4">30</td>
             <td id="n4">36</td>
-            <td id="g4">63</td>
+            <td id="g4">60</td>
             <td id="o4">10</td>
             <tbody>
                 <tr>
-                <td id="b5">39</td>
+                <td id="b5">14</td>
                 <td id="i5">22</td>
                 <td id="n5">38</td>
-                <td id="g5">65</td>
+                <td id="g5">59</td>
                 <td id="o5">69</td>
                 </tr></tbody>
             </tr></tbody>
@@ -157,6 +157,10 @@
         }
         function gerarcartela()
         {
+            cartelaB = misturarArray
+            // terminar essa parte
+
+
             for (var i = 1; i<= 5; i++)
             {
                 var tdg1 = document.getElementById("g"+1)
@@ -166,6 +170,30 @@
             }
         }
             
+        function numeroaleatorio(numeroMinimo, numeroMaximo){
+            var retorno = Math.floor(Math.random()* numeroMaximo)
+            if (retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo) {
+                return retorno
+            } else {
+                return numeroaleatorio(numeroMinimo,numeroMaximo)
+            }
+        }
+
+        function misturarArray(Array){
+            var aleatorio
+            var cont = array.length
+            var auxiliar
+            while (cont != 0) {
+                aleatorio =  numeroaleatorio(1,array.length)
+                cont--
+                auxiliar = array[cont]
+                array[cont] = array[aleatorio]
+                array[aleatorio] = auxiliar
+            }
+            return array
+        }
+
+        //faze o botao gerar cartela
         
     </script>
 </div>
