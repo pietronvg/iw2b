@@ -103,98 +103,112 @@
     <button onclick="GerarCartela()">
         Gerar Cartela
     </button>
-    </div>
+</div>
 
-    <script type="text/javascript">
-        var cartelaB = [];//1 a 15
-        var cartelaI = [];//16 a 30
-        var cartelaN = [];//31 a 45
-        var cartelaG = [];//46 a 60
-        var cartelaO = [];//61 a 75
 
-        function GerarArray(NumeroInicial, quantidade) {
-            var retorno = []
-            for (var i = 0; i < quantidade; i++) 
-            {
-                retorno.push(NumeroInicial)
-                NumeroInicial++;   
-            }
-            return retorno
+
+<script type="text/javascript">
+    var cartelaB = [];//1 a 15
+    var cartelaI = [];//16 a 30
+    var cartelaN = [];//31 a 45
+    var cartelaG = [];//46 a 60
+    var cartelaO = [];//61 a 75
+
+    function GerarArray(NumeroInicial, quantidade) {
+        var retorno = []
+        for (var i = 0; i < quantidade; i++) 
+        {
+            retorno.push(NumeroInicial)
+            NumeroInicial++;
         }
+        return retorno
+    }
+   
+   
+    var b2 = document.getElementById("b2");
+    var b1 = document.getElementById("b1");
+    console.log(b2);
+    console.log(b1);
 
-        var b2 = document.getElementById("b2");
-        var b1 = document.getElementById("b1");
-        console.log(b2);
-        console.log(b1);
-        function MarcarSorteado(nomeId,elemento){
-            console.log("Elemento=")
-            console.log(elemento)
-            console.log(nomeId)
-            (elemento.style.backgroundColor = "red")
-            if(elemento.style.backgroundColor == "red")
-                alert("a cor é red")
-        else{
+    function MarcarSorteado(nomeId, elemento){
+        console.log("Elemento=")
+        console.log(elemento)
+        console.log(nomeId)
+        elemento.style.backgroundColor = "red";
+        if(elemento.style.backgroundColor == "red")
+        {
+            alert("a cor é red")
+        }
+        else
+        {
 
         }
     }
-        cartelaB = GerarArray(1,15);
-        cartelaI = GerarArray(16,15);
-        cartelaN = GerarArray(31,15);
-        cartelaG = GerarArray(46,15);
-        cartelaO = GerarArray(61,15);
 
-        function GerarCartela()
+
+
+    cartelaB = GerarArray(1,15);
+    cartelaI = GerarArray(16,15);
+    cartelaN = GerarArray(31,15);
+    cartelaG = GerarArray(46,15);
+    cartelaO = GerarArray(61,15);
+
+    function GerarCartela()
+    {
+        cartelaB = MisturarArray(GerarArray(1,15));
+        cartelaI = MisturarArray(GerarArray(16,15));
+        cartelaN = MisturarArray(GerarArray(31,15));
+        cartelaG = MisturarArray(GerarArray(46,15));
+        cartelaO = MisturarArray(GerarArray(61,15));
+
+        for(var i = 1; i <= 5; i++ )
         {
-        cartelaB = misturarArray(GerarArray(1,15));
-        cartelaI = misturarArray(GerarArray(16,15));
-        cartelaN = misturarArray(GerarArray(31,15));
-        cartelaG = misturarArray(GerarArray(46,15));
-        cartelaO = misturarArray(GerarArray(61,15));
-
-
-            for (var i = 1; i <= 5; i++)
-            {
-                var td = document.getElementById("g"+1)
-                td.innerText = cartelaG[i]
-
-                td = document.getElementById("i"+1)
-                td.innerText = cartelaI[i]
-
-                td = document.getElementById("b"+1)
-                td.innerText = cartelaB[i]
-
-                td = document.getElementById("n"+1)
-                td.innerText = cartelaN[i]
-
-                td = document.getElementById("o"+1)
-                td.innerText = cartelaO[i]
-            }
-        }
+            var td = document.getElementById("g"+i)
+            td.innerText = cartelaG[i]
             
-        function NumeroAleatorio(numeroMinimo, numeroMaximo){
-            var retorno = Math.floor(Math.random() * numeroMaximo)
-            if (retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo) {
-                return retorno
-            } else {
-                return NumeroAleatorio(numeroMinimo,numeroMaximo)
-            }
-        }
+            td = document.getElementById("i"+i)
+            td.innerText = cartelaI[i]
 
-        function misturarArray(Array){
-            var aleatorio
-            var cont = array.length
-            var auxiliar
-            while (cont != 0) {
-                aleatorio =  NumeroAleatorio(1,array.length)
-                cont--
-                auxiliar = array[cont]
-                array[cont] = array[aleatorio]
-                array[aleatorio] = auxiliar
-            }
-            return array
+            td = document.getElementById("b"+i)
+            td.innerText = cartelaB[i]
+
+            td = document.getElementById("n"+i)
+            td.innerText = cartelaN[i]
+
+            td = document.getElementById("o"+i)
+            td.innerText = cartelaO[i]
         }
-        
-    </script>
+    }
+
+
+   
+    function NumeroAleatorio(numeroMinimo, numeroMaximo) {
+        var retorno = Math.floor(Math.random() * numeroMaximo)
+        if (retorno > 0 && retorno >= numeroMinimo && retorno <= numeroMaximo) {
+            return retorno
+        } else {
+            return NumeroAleatorio(numeroMinimo, numeroMaximo)
+        }
+    }
+
+
+
+
+    function MisturarArray(array) {
+        var aleatorio
+        var cont = array.length
+        var auxiliar
+        while (cont != 0) {
+            aleatorio = NumeroAleatorio(1, array.length)
+            cont--
+            auxiliar = array[cont]
+            array[cont] = array[aleatorio]
+            array[aleatorio] = auxiliar
+        }
+        return array
+    }
+</script>
+
      
  
 </body>
