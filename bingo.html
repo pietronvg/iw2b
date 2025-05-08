@@ -22,10 +22,6 @@
         padding: 0%;
         margin: 0%;
        }
-       #n3{
-        background-color: crimson;
-        padding-bottom: 0%;
-       }
         th, td{
             font-size: 50px;
             padding: 15px;
@@ -78,9 +74,9 @@
             <tr>
             <td id="b3"onclick="MarcarSorteado('b3', this)">2</td>
             <td id="i3"onclick="MarcarSorteado('i3', this)">36</td>
-            <td id="n3"onclick="MarcarSorteado('n3', this)"><img src="./imagem.png" alt=""></td>
-            <td id="g3"onclick="MarcarSorteado('g3', this)">47</td>
-            <td id="o3"onclick="MarcarSorteado('o3', this)">52</td>
+            <td id="n3"onclick="MarcarSorteado('n3', this)">23</td>
+            <td id="g3"onclick="MarcarSorteado('g3', this)">45</td>
+            <td id="o3"onclick="MarcarSorteado('o3', this)">40</td>
             </tr></tbody>
         <tbody>
             <tr>
@@ -176,6 +172,7 @@
 
             td = document.getElementById("o"+i)
             td.innerText = cartelaO[i]
+
         }
     }
 
@@ -205,6 +202,7 @@
             array[aleatorio] = auxiliar
         }
         return array
+        
     }
 </script>
 
