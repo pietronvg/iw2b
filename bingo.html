@@ -98,6 +98,16 @@
     <button onclick="GerarCartela()">
         Gerar Cartela
     </button>
+
+   
+    <button onclick="SortearNumero()">
+    Sortear Número
+    </button>
+
+    <div id="numerosSorteadosBox" style="color: white; margin-top: 20px; font-size: 24px;">
+       Números sorteados: <span id="numerosSorteadosLista"></span>
+    </div>
+
 </div>
 
 
@@ -132,7 +142,7 @@
         elemento.style.backgroundColor = "red";
         if(elemento.style.backgroundColor == "red")
         {
-            alert("a cor é red")
+            
         }
         else
         {
@@ -148,33 +158,32 @@
     cartelaG = GerarArray(46,15);
     cartelaO = GerarArray(61,15);
 
-    function GerarCartela()
-    {
-        cartelaB = MisturarArray(GerarArray(1,15));
-        cartelaI = MisturarArray(GerarArray(16,15));
-        cartelaN = MisturarArray(GerarArray(31,15));
-        cartelaG = MisturarArray(GerarArray(46,15));
-        cartelaO = MisturarArray(GerarArray(61,15));
+    function GerarCartela() {
+    
+    const celulas = document.querySelectorAll("td");
+    celulas.forEach(celula => {
+        celula.style.backgroundColor = ""; 
+    });
 
-        for(var i = 1; i <= 5; i++ )
-        {
-            var td = document.getElementById("g"+i)
-            td.innerText = cartelaG[i]
-            
-            td = document.getElementById("i"+i)
-            td.innerText = cartelaI[i]
+    numerosSorteados = [];
+    
+    document.getElementById("numerosSorteadosLista").innerText = "";
 
-            td = document.getElementById("b"+i)
-            td.innerText = cartelaB[i]
+    cartelaB = MisturarArray(GerarArray(1, 15));
+    cartelaI = MisturarArray(GerarArray(16, 15));
+    cartelaN = MisturarArray(GerarArray(31, 15));
+    cartelaG = MisturarArray(GerarArray(46, 15));
+    cartelaO = MisturarArray(GerarArray(61, 15));
 
-            td = document.getElementById("n"+i)
-            td.innerText = cartelaN[i]
-
-            td = document.getElementById("o"+i)
-            td.innerText = cartelaO[i]
-
-        }
+    for (var i = 1; i <= 5; i++) {
+        document.getElementById("b" + i).innerText = cartelaB[i];
+        document.getElementById("i" + i).innerText = cartelaI[i];
+        document.getElementById("n" + i).innerText = cartelaN[i];
+        document.getElementById("g" + i).innerText = cartelaG[i];
+        document.getElementById("o" + i).innerText = cartelaO[i];
     }
+}
+
 
 
    
@@ -202,8 +211,33 @@
             array[aleatorio] = auxiliar
         }
         return array
-        
     }
+    var numerosSorteados = [];
+
+    function SortearNumero() {
+        if (numerosSorteados.length >= 75) {
+            alert("Todos os números já foram sorteados!");
+            return;
+        }
+
+        let numero;
+        do {
+            numero = NumeroAleatorio(1, 75);
+        } while (numerosSorteados.includes(numero));
+
+        numerosSorteados.push(numero);
+
+        const td = document.querySelectorAll("td");
+        td.forEach(celula => {
+            if (parseInt(celula.innerText) === numero) {
+                celula.style.backgroundColor = "red";
+            }
+        });
+
+        document.getElementById("numerosSorteadosLista").innerText = numerosSorteados.join(", ");
+        alert("Número sorteado: " + numero);
+    }
+
 </script>
 
      
