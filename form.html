@@ -7,9 +7,9 @@
 </head>
 <body>
     <div class="form">
-    <form action="salvar.html" method="post">
+    <form action="salvar.html" method="post" onsubmit="return ValidarForm()">
         <label>Cep</label>
-        <input type="text" name="cep" id="cep" class="campo" /><br><br>
+        <input onclick="Borda(cep)" type="text" name="cep" id="cep" class="campo" /><br><br>
         <label>Endereço</label>
         <input type="text" name="endereco" id="endereco" class="campo" /> <br><br>
         <label>Número</label>
@@ -25,14 +25,37 @@
         </button>
     </form>
  </div>
+  <script>
+      function ValidarForm(){
+          var cep = document.getElementById('cep')
+          if (cep.value == ""){
+              return false
+          }
+      }
+      function Borda(){
+        console.log("Elemento=")
+        console.log(elemento)
+        console.log(nomeId)
+        elemento.style.backgroundColor = "red";
+        if(elemento.style.backgroundColor == "red")
+        {
+            
+        }
+        else
+        {
+
+        }
+    }
+  </script>
     <style>
         body{
             background-color: cadetblue ;
         }
         form{
             text-align: center;
-            justify-items: left;
-            justify-content: left;
+            justify-items: start;
+            justify-content: start;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
     </style>
 </body>
