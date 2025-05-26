@@ -31,6 +31,10 @@
           if (cep.value == ""){
               return false
           }
+          var endereco = document.getElementById('endereco')
+          if (endereco.value == ""){
+              return false
+          }
       }
       function Borda(nomeId,elemento){
         console.log("Elemento=")
@@ -38,14 +42,14 @@
         console.log(nomeId)
         var cep = document.getElementById('cep')
           if (cep.value == ""){
-              return (elemento.style.bordercolor == "red")
+              return (elemento.style.color == "red")
           }
         
     }
   </script>
     <style>
         body{
-            background-color: cadetblue ;
+            background-color: rgb(255, 255, 255) ;
         }
         form{
             text-align: center;
