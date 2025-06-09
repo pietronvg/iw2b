@@ -11,18 +11,56 @@
         var carro = {
             "marca" : "Hyundai",
             "modelo" : "Elantra",
-            "ano" : "2016",
-            "cor" : "vermelho",
-            "cor2" : "cinza",
-            "cor3" : "preto"
+            "ano" : "2024",
+            "cor" : "Vermelho" 
+        }
+        var carro2 = {
+            "marca" : "Ford",
+            "modelo" : "Focus",
+            "ano" : "2024",
+            "cor" : " Cinza" 
+        }
+        var carro3 = {
+            "marca" : "Audi",
+            "modelo" : "Q7",
+            "ano": "2025",
+            "cor": " Azul"
+        }
+        document.write("Marca: " + carro.marca + "<br>"),
+        document.write("Modelo: " + carro.modelo + "<br>"),
+        document.write("Ano: " + carro.ano + "<br>"+"<br>")
 
+        </script>
+    <div id="coresbox">
+        Cores dos carros:
+        <span id="coreslist">
+    </span>
+        <script>
+            var cores = carro.cor + "," + carro2.cor + "," + carro3.cor;
+            document.getElementById("coreslist").innerText = cores;
+
+            var pessoa = {
+            "endereco": ""
         }
-        document.write(modelo)
-       
-        var pessoa = {
-            "endereco" : "rua","numero""cidade"
+        
+        var endereco = {
+            "rua": "Paulo Freire",
+            "numero": "123",
+            "cidade": "Bauru"
         }
-    
-    </script>
+
+       document.write("<br>"+"Cidade da pessoa: " + endereco.cidade)
+
+        </script>
+    </div>
+    <style>
+        body{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+        #corescarros{
+            margin-top: 15px;
+        }
+    </style>
 </body>
 </html>
