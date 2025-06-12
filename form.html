@@ -9,7 +9,7 @@
     <div class="form">
     <form action="salvar.html" method="post" onsubmit="return ValidarForm()">
         <label>Cep</label>
-        <input type="text" name="cep" id="cep" class="campo" /><br><br>
+        <input type="text" name="cep" id="cep" class="campo"/><button onclick="consultarAPI" type="button">Consultar CEP</button><br><br>
         <label>Endereço</label>
         <input type="text" name="endereco" id="endereco" class="campo" /> <br><br>
         <label>Número</label>
@@ -26,6 +26,24 @@
     </form>
  </div>
   <script>
+      function consultarAPI(){
+          var cep = document.getElementById("cep")
+          var url = "viacep.com.br/ws/01001000/json/"+ cep.value + "/json/"
+          fetch(url).then((response)=> response.json())
+          .then((dados)=>{
+                    var endereco = docuemnt.getElementById("endereco")
+                    var bairro= docuemnt.getElementById("bairro")
+                    var ciadade= docuemnt.getElementById("estado")
+                    var estado= docuemnt.getElementById("cidade")
+
+                    endereco.value = dados.logradouro
+                    bairro.value = dados.bairro
+                    estado.value = dados.estado
+                    ciadade.value = dados.localidade
+
+
+          })
+      }
       function ValidarForm(){
           var cep = document.getElementById('cep')
           if (cep.value == ""){
