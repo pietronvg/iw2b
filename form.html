@@ -9,7 +9,7 @@
     <div class="form">
     <form action="salvar.html" method="post" onsubmit="return ValidarForm()">
         <label>Cep</label>
-        <input type="text" name="cep" id="cep" class="campo"/><button onclick="consultarAPI" type="button">Consultar CEP</button><br><br>
+        <input type="text" name="cep" id="cep" class="campo"/><button onclick="consultarAPI()" type="button">Consultar CEP</button><br><br>
         <label>Endereço</label>
         <input type="text" name="endereco" id="endereco" class="campo" /> <br><br>
         <label>Número</label>
@@ -28,18 +28,18 @@
   <script>
       function consultarAPI(){
           var cep = document.getElementById("cep")
-          var url = "viacep.com.br/ws/01001000/json/"+ cep.value + "/json/"
+          var url = "https://viacep.com.br/ws/" + cep.value + "/json/"
           fetch(url).then((response)=> response.json())
           .then((dados)=>{
-                    var endereco = docuemnt.getElementById("endereco")
-                    var bairro= docuemnt.getElementById("bairro")
-                    var ciadade= docuemnt.getElementById("estado")
-                    var estado= docuemnt.getElementById("cidade")
+                    var endereco = document.getElementById("endereco")
+                    var bairro= document.getElementById("bairro")
+                    var cidade= document.getElementById("cidade")
+                    var estado= document.getElementById("estado")
 
-                    endereco.value = dados.logradouro
+                    endereco.value = dados.logradouro 
                     bairro.value = dados.bairro
-                    estado.value = dados.estado
-                    ciadade.value = dados.localidade
+                    estado.value = dados.uf
+                    cidade.value = dados.localidade
 
 
           })
@@ -53,6 +53,7 @@
           if (endereco.value == ""){
               return false
           }
+              return true
       }
       function Borda(nomeId,elemento){
         console.log("Elemento=")
