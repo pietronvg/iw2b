@@ -20,7 +20,12 @@
         }
 
         #autoSizingInputGroup {
-            margin-top: 34vh;
+            margin-top: 4vh;
+            margin-right: 3vh;
+        }
+
+        .inputcep {
+
         }
     </style>
     <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
@@ -60,7 +65,7 @@
             <br>
         </div>
         <div class="col-auto">
-            <div class="areacep">
+            <div class="col">
                 <label class="inputcep">
                     <h5>CEP</h5>
                 </label>
@@ -77,27 +82,27 @@
                     </div>
                 </div>
             </div>
-                <br>
-                <label class="exampleInputEndereco">
-                    <h5>Endereço</h5>
+            <br>
+            <label class="exampleInputEndereco">
+                <h5>Endereço</h5>
+            </label>
+
+            <input type="text" class="form-control" id="exampleInputEndereco" aria-describedby="nameHelp"
+                placeholder="Digite seu endereço">
+
+            <label class="exampleInputSenha">
+                <h5>Senha</h5>
+            </label>
+
+            <input type="text" class="form-control" id="exampleInputSenha" aria-describedby="nameHelp"
+                placeholder="Digite sua senha">
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                <label class="form-check-label" for="autoSizingCheck">
+                    Eu aceito os termos e condições
                 </label>
-
-                <input type="text" class="form-control" id="exampleInputEndereco" aria-describedby="nameHelp"
-                    placeholder="Digite seu endereço">
-
-                <label class="exampleInputSenha">
-                    <h5>Senha</h5>
-                </label>
-
-                <input type="text" class="form-control" id="exampleInputSenha" aria-describedby="nameHelp"
-                    placeholder="Digite sua senha">
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                    <label class="form-check-label" for="autoSizingCheck">
-                        Eu aceito os termos e condições
-                    </label>
-                </div>
+            </div>
 
     </form>
 
